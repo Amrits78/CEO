@@ -1,0 +1,204 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    background-color: black; /* Set background color to black */
+    color: white; /* Set text color to white for readability */
+}
+
+header {
+    background-color: rgba(51, 51, 51, 0.3); /* Adjusted for transparency */
+    color: white;
+    padding: 1em 2em;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: fixed; /* Make the header fixed */
+    width: 100%; /* Ensure the header takes the full width */
+    top: 0; /* Position the header at the top */
+    z-index: 1000; /* Ensure the header is above other content */
+}
+
+header a img {
+    height: 50px;
+}
+
+header nav {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+header nav .nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 1.5em;
+    cursor: pointer;
+    position: absolute;
+    right: 1em;
+}
+
+header nav ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+    margin: 0;
+    display: flex;
+    margin-right: 2em; /* Add space to the right of the navigation links */
+}
+
+header nav ul li {
+    position: relative;
+    margin: 0 1em;
+}
+
+header nav ul li a {
+    color: white;
+    text-decoration: none; /* Remove underline from links */
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+header nav ul li .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #242424; /* Set background color to gray */
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.4);
+    z-index: 1;
+}
+
+header nav ul li .dropdown-content a {
+    color: white; /* Set text color to white */
+    padding: 12px 16px;
+    text-decoration: none; /* Remove underline from dropdown links */
+    display: block;
+    white-space: nowrap; /* Prevent text from wrapping */
+}
+
+header nav ul li .dropdown-content a:hover {
+    background-color: black; /* Set hover background color to black */
+    color: white; /* Ensure text color remains readable */
+}
+
+header nav ul li:hover .dropdown-content {
+    display: block;
+}
+section {
+    padding: 2em;
+    margin: 1em 0;
+    padding-top: 80px; /* Add padding to avoid content being hidden behind the fixed header */
+}
+
+footer {
+    background-color: #000000;
+    color: white;
+    text-align: center;
+    padding: 1em 0;
+}
+
+a {
+    color: white; /* Set link color to white */
+    text-decoration: none; /* Remove underline from links */
+}
+
+a:hover {
+    text-decoration: underline; /* Optional: Add underline on hover */
+}
+
+/* Add arrow before each list item in the Companies section */
+#companies ul {
+    list-style: none; /* Remove default bullet points */
+    padding: 0;
+}
+
+#companies ul li::before {
+    content: "➔ "; /* Add arrow before each list item */
+    color: white; /* Set arrow color to white */
+    margin-right: 0.5em; /* Add some space between arrow and text */
+}
+
+/* Remove bullet points from the Socials section and add arrow */
+#socials ul {
+    list-style: none; /* Remove default bullet points */
+    padding-left: 0; /* Remove left padding */
+}
+
+#socials ul li::before {
+    content: "➔ "; /* Add arrow before each list item */
+    color: white; /* Set arrow color to white */
+    margin-right: 0.5em; /* Add some space between arrow and text */
+}
+
+/* Change background color to gray on hover for Socials links */
+#socials ul li a:hover {
+    background-color: gray; /* Set hover background color to gray */
+}
+
+
+/* Media Queries for Mobile Responsiveness */
+@media (max-width: 768px) {
+    header {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+    }
+
+    header nav {
+        flex-grow: 1;
+        display: flex;
+        justify-content: flex-end; /* Move the navigation content to the right */
+        align-items: center;
+    }
+
+    header nav .nav-toggle {
+        display: block;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5em;
+        cursor: pointer;
+        position: absolute;
+        right: 50px; /* Add some space to the right of the toggle button */
+    }
+
+    header nav ul {
+        flex-direction: column;
+        width: auto;
+        display: none; /* Hide the nav links by default */
+        position: absolute;
+        top: 60px; /* Position the nav links below the toggle button */
+        right: 10px; /* Align the nav links to the right */
+        background-color: rgba(51, 51, 51, 0.2); /* Match the header background */
+        z-index: 1; /* Ensure the nav links are above other content */
+    }
+
+    header nav ul.show {
+        display: flex; /* Show the nav links when the button is clicked */
+    }
+
+    header nav ul li {
+        margin: 0.5em 0;
+    }
+
+    header nav ul li .dropdown-content {
+        display: none; /* Hide dropdown content by default in mobile mode */
+    }
+
+    header nav ul li:hover .dropdown-content {
+        display: none; /* Disable hover effect for dropdown in mobile mode */
+    }
+
+    body {
+        padding-top: 80px; /* Add padding to avoid content being hidden behind the fixed header */
+    }
+
+    section {
+        padding: 1em;
+    }
+
+    footer {
+        padding: 1em;
+    }
+}
