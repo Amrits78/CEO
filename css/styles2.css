@@ -17,49 +17,13 @@ body {
     margin: auto;
 }
 
-header {
-    background: #111; /* Darker header background */
-    color: #f4f4f4;
-    padding: 20px 0;
-    text-align: center;
-}
 
-nav ul {
-    list-style: none;
-    padding: 0;
-}
 
-nav ul li {
-    display: inline;
-    margin: 0 15px;
-}
 
-nav ul li a {
-    color: #fe2424; /* Premium red for links */
-    text-decoration: none;
-    transition: color 0.3s;
-}
 
-nav ul li a:hover {
-    color: #ff1a1a; /* Lighter red on hover */
-}
 
-.hero {
-    background: url('header-background.jpg') no-repeat center center/cover;
-    padding: 80px 0;
-    text-align: center;
-    color: white;
-}
 
-.cta-button {
-    background: #ff1919; /* Premium call-to-action button */
-    color: white;
-    padding: 10px 20px;
-    text-decoration: none;
-    border-radius: 5px;
-    font-weight: bold;
-    margin-top: 15px;
-}
+
 
 .apps-section {
     padding: 40px 0;
@@ -104,30 +68,5 @@ nav ul li a:hover {
     background: #ff0c0c; /* Darker red on hover */
 }
 
-.features-section, .resources-section {
-    padding: 40px 0;
-    background: #111; /* Consistent background color */
-}
 
-.features-section ul {
-    list-style-type: square;
-    padding-left: 20px;
-}
 
-footer {
-    background: #222; /* Dark footer background */
-    color: white;
-    text-align: center;
-    padding: 15px 0;
-    margin-top: 20px;
-}
-
-footer a {
-    color: #ff5733; /* Premium red for footer links */
-    text-decoration: none;
-    transition: color 0.3s;
-}
-
-footer a:hover {
-    color: #fd0c0c; /* Lighter red on hover */
-}
