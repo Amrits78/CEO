@@ -1,0 +1,836 @@
+/* Resetting some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+}
+
+/* Basic body style */
+body {
+    display: flex;
+    font-family: 'Poppins', sans-serif;
+    color: #111111;
+    margin: 0;
+    height: 100vh;
+}
+
+h1 {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 700;
+    /* Use 400 for normal weight and 700 for bold */
+}
+
+p {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
+
+/*styling*/
+.ceo-hero {
+    width: 100%;
+    height: auto;
+}
+
+/* Sidebar (Header) starts here */
+.header {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 275px;
+    height: 100%;
+    background-color: black;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/*logo*/
+.logoh {
+    display: flex;
+    flex-direction: column;
+    width: 275px;
+}
+
+.logoc {
+    display: flex;
+    justify-content: left;
+}
+
+.logoc img {
+    width: 180px;
+    height: 160px;
+    padding-left: 18px;
+    margin-top: -20px;
+}
+
+/*nav-toggle*/
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    color: white;
+    font-size: 24px;
+    cursor: pointer;
+}
+
+/*nav*/
+.nav-links {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    /* Center align items */
+    flex-grow: 1;
+    /* Allow it to grow */
+    justify-content: center;
+    /* Center the nav links */
+    margin-bottom: 130px;
+    width: 225px;
+}
+
+#nav-links.active {
+    display: block;
+}
+
+nav ul {
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    list-style: none;
+}
+
+.ceo-link {
+    margin-left: -5px;
+    margin-bottom: 9px;
+}
+
+nav ul li {
+    text-align: left;
+    width: 100%;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+nav ul li a {
+    color: white;
+    text-decoration: none;
+    padding: 5px 20px;
+    /* Add padding for better spacing */
+    display: inline-block;
+    /* Ensure the link takes up only the width of the text */
+    position: relative;
+    transition: color 0.3s ease;
+    /* Add transition for smooth animation */
+    word-spacing: 0.1em;
+}
+
+nav ul li a::before {
+    content: '';
+    position: absolute;
+    bottom: 1px;
+    left: 10px;
+    width: 85%;
+    height: 85%;
+    background: rgb(23, 191, 23);
+    background-clip: padding-box;
+    /* Change background color */
+    z-index: -1;
+    transition: transform 0.3s ease;
+    transform: scaleX(0);
+    transform-origin: left;
+    display: block;
+}
+
+nav ul li a:hover::before,
+nav ul li a.active::before {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
+nav ul li a:hover,
+nav ul li a.active {
+    color: white;
+}
+
+nav ul li a.active {
+    background: none;
+}
+
+.chevron {
+    position: absolute;
+    left: 440px;
+    cursor: pointer;
+    display: none !important;
+    /* Hide by default */
+}
+
+/* Add this to your existing CSS file */
+.parent-link.active+.sub-links {
+    display: block;
+    /* Ensure the sub-links are visible */
+}
+
+/*sub links*/
+.sub-links {
+    margin-top: 4px;
+    margin-bottom: -4px;
+    display: none;
+    flex-direction: column;
+    align-items: center;
+    background-color: black;
+    width: fit-content;
+    margin-left: 35px;
+    /* Prevent transitions */
+}
+
+.sub-links.show {
+    display: block;
+    background-color: black;
+    /* Prevent transitions */
+}
+
+.sub-links li {
+    padding: 0;
+    font-size: 14px;
+    font-weight: bold;
+    /* Prevent transitions */
+}
+
+.sub-links li a {
+    padding: 3px;
+    color: white;
+    text-decoration: none;
+    /* Prevent transitions */
+}
+
+.sub-links li a:hover,
+.sub-links li a.active-link {
+    color: rgb(23, 191, 23);
+}
+
+/*social-media*/
+.social-media {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: left;
+    width: 80%;
+    position: absolute;
+    bottom: 60px;
+    left: 40px;
+}
+
+.social-media a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+}
+
+.social-icon:hover {
+    transform: scale(1.1);
+}
+
+.social-icon {
+    position: relative;
+    display: inline-block;
+    width: 24px;
+    /* Adjust size as needed */
+    height: 24px;
+    /* Adjust size as needed */
+    overflow: hidden;
+    /* Ensure icons disappear when moved out of view */
+    padding: 10px;
+}
+
+.social-icon .white-icon,
+.social-icon .green-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    transition: transform 0.3s ease, visibility 0.3s ease;
+}
+
+.social-icon .green-icon {
+    transform: translateY(100%);
+    color: rgb(8, 176, 8);
+    /* Adjust color as needed */
+    visibility: hidden;
+    /* Initially hidden */
+}
+
+.social-icon:hover .white-icon {
+    animation: moveUp 0.2s forwards;
+}
+
+.social-icon:hover .green-icon {
+    animation: moveUpFromBelow 0.2s forwards;
+    visibility: visible;
+    /* Make visible on hover */
+}
+
+.social-icon:not(:hover) .white-icon {
+    animation: moveDownFromAbove 0.1s forwards;
+}
+
+.social-icon:not(:hover) .green-icon {
+    animation: moveDownToBelow 0.1s forwards;
+    visibility: hidden;
+    /* Hide when not hovered */
+}
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+@keyframes moveUpFromBelow {
+    0% {
+        transform: translateY(100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveDownFromAbove {
+    0% {
+        transform: translateY(-100%);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
+
+@keyframes moveDownToBelow {
+    0% {
+        transform: translateY(0);
+    }
+
+    100% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+}
+
+.social-icon-png:hover {
+    transition: filter 0.1s ease;
+}
+
+.social-icon-png:hover {
+    filter: invert(38%) sepia(83%) saturate(748%) hue-rotate(66deg) brightness(95%) contrast(92%);
+}
+
+.social-icon-png.green-icon {
+    filter: invert(38%) sepia(83%) saturate(748%) hue-rotate(66deg) brightness(95%) contrast(92%);
+}
+
+/*siderbar ends here*/
+/*nav  wrapper styling */
+.nav-wrapper {
+    top: 0;
+    width: 100%;
+    background-color: rgb(255, 227, 12);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 6px 18px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    min-height: 25px;
+}
+
+.check-text {
+    text-align: center;
+    font-size: 15px;
+    /* Adjust font size as needed */
+    font-weight: 600;
+    /* Adjust font weight as needed */
+    color: rgb(51, 44, 44);
+    /* Adjust text color as needed */
+    position: relative;
+    display: inline-block;
+    text-decoration: none;
+}
+
+.check-text::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    transform: scaleX(1);
+    height: 2px;
+    bottom: 0;
+    left: 0;
+    background-color: currentColor;
+    transform-origin: bottom left;
+    transition: transform 0.25s ease-out;
+}
+
+.check-text:hover::after {
+    transform: scaleX(0);
+    transform-origin: bottom right;
+}
+
+/* Content area styling */
+.content-wrapper {
+    display: flex;
+    flex-direction: column;
+    margin-left: 275px;
+    height: 100%;
+    overflow-x: hidden;
+    /* Ensure no horizontal overflow */
+    background-color: #f4f4f4;
+    flex-grow: 1;
+}
+
+.content {
+    flex-grow: 1;
+    background-color: #111111;
+}
+
+.content h2 {
+    margin-bottom: 20px;
+    font-size: 28px;
+}
+
+.content p {
+    margin-bottom: 15px;
+    line-height: 1.6;
+}
+
+.quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: black;
+    color: #ffffff;
+    padding-bottom: 30px;
+}
+
+.quote-text1,
+.quote-text2 {
+    font-size: 50px;
+    font-weight: bold;
+}
+
+.quote-text2 {
+    text-align: center;
+}
+
+.quote-text3 {
+    display: flex;
+    /* Enable flexbox for centering */
+    justify-content: center;
+    /* Center text horizontally */
+    align-items: center;
+    /* Center text vertically */
+    font-size: 22px;
+    font-weight: bold;
+    text-align: center;
+    color: black;
+    background-color: yellow;
+    /* Set static background */
+    margin: 0;
+    /* Remove top margin */
+    left: -10px;
+    padding: 0px 5px;
+    /* Balanced padding */
+    height: auto;
+}
+
+.animated-header {
+    display: inline-block;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, yellow 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s ease-in-out;
+}
+
+.animated-header.visible {
+    background-position: 0 0;
+}
+
+/* hero section stars here */
+.hero-flex {
+    display: flex;
+    justify-content: space-between;
+    background-color: black;
+    margin-bottom: 150px;
+}
+
+.flex-column img {
+    width: 100%;
+    /* Make the image take up the full width of the column */
+    height: 100%;
+    /* Make the image take up the full height of the column */
+    object-fit: cover;
+    /* Ensure the image covers the entire area without distortion */
+    object-position: top;
+    transition: 0.3s ease;
+    /* Smooth transition for the filter effect */
+    display: block;
+    /* Ensure the image is displayed as a block element */
+}
+
+.flex-column {
+    flex: 1;
+    position: relative;
+    width: 300px;
+    /* Adjust width */
+    height: 360px;
+    /* Adjust height */
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.hover-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Smooth transition for the image */
+}
+
+.hover-image2 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    background-position: bottom;
+    transition: all 0.3s ease;
+    cursor: pointer;
+}
+
+.hover-image3 {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    /* Smooth transition for the image */
+}
+
+/* Creating the green overlay */
+.flex-column::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(3, 196, 13, 0.438);
+    /* Light green color with transparency */
+    opacity: 0;
+    /* Initially hidden */
+    transition: opacity 0.3s ease;
+    /* Smooth transition for the overlay */
+    pointer-events: none;
+    /* Ensure the overlay does not block clicks */
+}
+
+.flex-column:hover::before {
+    opacity: 1;
+    /* Show overlay when hovered */
+}
+
+.flex-column h2,
+.flex-column p {
+    position: absolute;
+    z-index: 2;
+    color: white;
+    margin: 0;
+    padding: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    text-align: center;
+}
+
+.flex-column h2 {
+    bottom: 42px;
+}
+
+.flex-column p {
+    bottom: 10px;
+    /* Position the paragraph at the bottom */
+}
+/* hero section ends here */
+
+.whats-new {
+    padding: 0;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    /* Center the content horizontally */
+    /* Remove padding to ensure the image fits the screen */
+    background-color: #111111 !important;
+    width: 100%;
+    /* Ensure the container takes up the full viewport width */
+    height: 98vh;
+    /* Ensure the container takes up the full viewport height */
+    overflow: hidden;
+    /* Hide any overflow */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    /* Add shadow box */
+}
+
+.whats-new h1 {
+    font-weight: bold;
+    position: absolute;
+    top: 0;
+    /* Adjust the top position as needed */
+    left: 80px;
+    padding: 0px 2px;
+    /* Add some padding to the text */
+    text-decoration: none;
+    /* Remove underline from the link */
+    z-index: 2;
+    /* Ensure the text is above the image */
+    font-size: 30px;
+    color: black;
+}
+
+.whats-new-image {
+    width: 100%;
+    /* Make the image take up the full width of the container */
+    height: auto;
+    /* Make the image take up the full height of the container */
+    object-fit: contain;
+    /* Ensure the image covers the entire area without distortion */
+    transition: transform 0.4s ease-out;
+    /* Smooth transition for the image */
+    position: relative;
+    /* Position the image absolutely */
+    top: -5px;
+    left: 0;
+    cursor: pointer;
+}
+
+.whats-new-image:hover {
+    transform: scale(1.1);
+}
+
+/* Featured Articles Section */
+.featured-articles {
+    padding: 200px 20px;
+    text-align: center;
+    flex-direction: column;
+    background-color: #111111;
+    position: relative;
+}
+
+.featured-articles h1 {
+    color: black;
+    font-size: 30px;
+    font-weight: bold;
+    position: absolute;
+    /* Adjust the top position as needed */
+    left: 160px;
+    top: 0;
+    /* Adjust the top position to move it down */
+    padding: 1px 5px;
+    /* Add some padding to the text */
+    text-decoration: none;
+    /* Remove underline from the link */
+    z-index: 2;
+}
+
+.article-container {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.article {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    overflow: hidden;
+    max-width: 300px;
+    text-align: left;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.article:hover {
+    transform: translateY(-10px);
+}
+
+.article-thumbnail {
+    width: 100%;
+    height: auto;
+}
+
+.article-content {
+    padding: 15px;
+}
+
+.article-title {
+    font-size: 1.2rem;
+    margin: 10px 0;
+    color: #000;
+    font-weight: bold;
+}
+
+.article-excerpt {
+    font-size: 1rem;
+    color: #555;
+    margin-bottom: 15px;
+}
+
+.read-more {
+    font-size: 1rem;
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.read-more:hover {
+    text-decoration: underline;
+}
+
+/*jobs-button*/
+.open-positions-button {
+    position: fixed;
+    right: 0;
+    top: 54.3%;
+    transform: translateY(-50%);
+    background-color: rgb(4, 234, 4);
+    color: white;
+    padding: 8px 12px;
+    text-decoration: none;
+    border-radius: 50px 0 0 50px;
+    font-weight: bold;
+    font-size: 15px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: width 0.3s ease, background-color 0.3s ease;
+    z-index: 1000;
+    width: 30px;
+    /* Initial width to show only the image */
+    overflow: hidden;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    margin-right: 17px;
+    cursor: pointer;
+}
+
+.open-positions-button:hover {
+    background-color: rgb(4, 234, 4);
+    width: 160px;
+    /* Expand width to show full text */
+}
+
+.open-positions-button .button-icon {
+    width: 36px;
+    /* Adjust the size as needed */
+    height: 42px;
+    /* Adjust the size as needed */
+    flex-shrink: 0;
+    margin-left: 6px;
+}
+
+.open-positions-button .button-text {
+    margin-left: 8px;
+    pointer-events: none; /* Ensures text doesn't intercept clicks */
+    flex-direction: column; /* Stacks text vertically */
+}
+
+.check-text1 {
+    display: block;
+    /* Ensure it is a block element */
+    font-size: 14px;
+    /* Adjust the size as needed */
+    text-decoration: none;
+    text-align: left;
+    color: white;
+    margin-bottom: -8px;
+}
+
+.open-positions-text {
+    display: block;
+    /* Ensure it is a block element */
+    font-size: 14px;
+    /* Adjust the size as needed */
+}
+
+
+
+.check-text1, .open-positions-text {
+    pointer-events: none; /* Prevents individual text elements from blocking clicks */
+}
+/*jobs-button ends here*/
+
+.go-to-top {
+    position: fixed;
+    bottom: 20px;
+    right: 30px;
+    /* Adjust if necessary to account for the vertical header */
+    background-color: #00000056;
+    color: white;
+    padding: 6px 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    font-size: 12px;
+    z-index: 1000;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: background-color 0.3s;
+    display: none;
+    /* Initially hidden */
+}
+
+.go-to-top:hover {
+    background-color: #24cc2d;
+}
+
+/* Footer styling */
+footer {
+    display: flex;
+    flex-direction: column;
+    background-color: #0a0a0a;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    
+}
+
+.footer h3 {
+    margin-bottom: 20px;
+    font-size: 1.5em;
+}
+
+.footer ul {
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+}
+
+.footer ul li {
+    display: inline;
+}
+
+.footer ul li a {
+    color: #fff;
+    text-decoration: none;
+}
+
+.footer ul li a img {
+    width: 50px;
+    height: 50px;
+}
+
+.footer p {
+    margin-top: 20px;
+    font-size: 0.9em;
+}
