@@ -1,0 +1,630 @@
+.quote {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 300px;
+    background-color: #1a1a1a;
+    color: #ffffff;
+    padding-top: 100px;
+    padding-bottom: 50px;
+}
+
+@media (max-width: 768px) {
+    .quote {
+        background-color: #1a1a1a !important;
+    }
+}
+
+.quote-text1,
+.quote-text2 {
+    font-size: 35px;
+    font-weight: bold;
+}
+
+.ceo-intro {
+    margin-left: -430px;
+}
+
+.ceo-intro h1 {
+    font-size: 50px;
+    color: yellow;
+    margin-bottom: -10px;
+}
+
+.intro {
+    display: flex;
+    margin-top: 30px;
+}
+
+.intro p {
+    font-size: 17px;
+}
+
+
+.ceo {
+    display: flex;
+    flex-direction: column;
+}
+
+.title-wrap {
+    display: flex;
+    order: 1;
+    padding-top: 100px;
+}
+
+.hidden {
+    display: none;
+}
+
+.hidden {
+    cursor: default;
+}
+
+.animated-header {
+    font-size: 30px;
+    color: black;
+    /* Text color remains the same */
+    display: inline-block;
+    padding-left: 5px;
+    padding-right: 5px;
+    margin-left: 80px;
+    margin-bottom: 90px;
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(to right, yellow 50%, transparent 50%);
+    background-size: 200% 100%;
+    background-position: 100% 0;
+    transition: background-position 0.5s ease-in-out;
+}
+
+.animated-header.visible {
+    background-position: 0 0;
+}
+
+.grid-item-link {
+    text-decoration: none;
+    /* Remove underline from the link */
+    display: block;
+    /* Make the link behave like a block */
+    color: inherit;
+    /* Inherit text color to avoid styling issues */
+}
+
+/* Grid Container with Fixed 4 Columns */
+.grid-container {
+    order: 2;
+    display: grid;
+    grid-template-columns: 0.99fr 1fr 1fr 0.99fr;
+    padding: 0;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+/* Box Styling */
+.grid-item {
+    background-color: #151515;
+    border: 1px solid #ffffff;
+    /* Sets border color and thickness */
+    border-left: 0.8px solid #ffffff;
+    /* Vertical border */
+    border-right: 0.8px solid #ffffff;
+    /* Vertical border */
+    height: 252px;
+    text-align: center;
+}
+
+.grid-item:nth-child(4n+1) {
+    border-left: none;
+}
+
+/* No right border for the last item in each row */
+.grid-item:nth-child(4n) {
+    border-right: none;
+}
+
+.grid-item-hidden {
+    background-color: #111111;
+    border: 1px solid #ffffff;
+    /* Sets border color and thickness */
+    border-left: 0.8px solid #ffffff;
+    /* Vertical border */
+    border-right: 0.8px solid #ffffff;
+    /* Vertical border */
+    height: 252px;
+    text-align: center;
+}
+
+.grid-item-hidden:hover {
+    cursor: default;
+}
+
+.grid-item h3 {
+    font-size: 1.5em;
+    color: #333;
+}
+
+.grid-item p {
+    color: white;
+    font-size: 14px;
+    text-align: left;
+    padding-left: 25px;
+    /* Add padding to the left */
+    padding-right: 25px;
+    /* Add padding to the right to keep it centered under the logo */
+    display: block;
+}
+
+/*founder-section grid */
+#founder-section .grid-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    /* 4 columns, even if some are hidden */
+    position: relative;
+}
+
+/* Grid item styling */
+#founder-section #left-box {
+    background-color: #151515;
+    text-align: center;
+    border-top: 1px solid #ffffff;
+    /* Top border */
+    border-bottom: 1px solid #ffffff;
+    /* Bottom border */
+    border-right: 1px solid #ffffff;
+    /* Vertical border */
+}
+
+/* Hide the other grid items but keep borders visible */
+#founder-section .grid-container .grid-item:nth-child(n+2) {
+    visibility: hidden;
+    /* Hide other grid items */
+}
+
+/* Extend top and bottom borders across the full width */
+#founder-section .grid-container::before,
+#founder-section .grid-container::after {
+    content: "";
+    display: block;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 0;
+    height: 1px;
+    background-color: #ffffff;
+}
+
+#founder-section .grid-container::after {
+    top: auto;
+    bottom: 0;
+}
+
+.ceo {
+    text-align: center;
+}
+
+.logo-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    /* Position logo at the bottom */
+    height: 100%;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.logo {
+    width: 80px;
+    /* Adjust size */
+    height: 80px;
+    /* Adjust size */
+    transition: opacity 0.3s ease;
+}
+
+.role-text {
+    font-size: 1.2em;
+    font-weight: bold;
+    margin-top: 10px;
+    color: #333;
+    opacity: 0;
+    /* Text is hidden initially */
+    transition: opacity 0.3s ease;
+}
+
+.grid-item:hover .logo-wrapper {
+    transform: translateY(-50px);
+    /* Move logo up slightly */
+}
+
+.grid-item:hover .role-text {
+    opacity: 1;
+    /* Show the text */
+}
+
+/* On hover: move both the logo and the gradient up */
+.grid-item:hover {
+    cursor: pointer;
+}
+
+.grid-item {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    background: no-repeat;
+    z-index: 0;
+    transition: background 0.3s ease, transform 0.3s ease;
+}
+
+.grid-item::before {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 85%;
+    background: transparent;
+    z-index: -1;
+    /* Ensure the pseudo-element is behind the content */
+    transition: background 0.3s ease;
+}
+
+/* Custom background colors for each grid item */
+#grid-item-1:hover::before {
+    background: linear-gradient(to top, rgb(1, 237, 1), rgba(255, 87, 34, 0));
+}
+
+#grid-item-2:hover::before {
+    background: linear-gradient(to top, rgba(0, 255, 255, 0.781), rgba(255, 87, 34, 0));
+}
+
+#grid-item-f3:hover::before {
+    background: linear-gradient(to top, rgb(0, 51, 255), rgba(255, 87, 34, 0));
+}
+
+#grid-item-f4:hover::before {
+    background: linear-gradient(to top, #3557ffcd, #cc2366, rgba(255, 87, 34, 0));
+}
+
+#grid-item-3:hover::before {
+    background: linear-gradient(to top, rgb(1, 237, 1), rgba(255, 87, 34, 0));
+}
+
+#grid-item-9:hover::before {
+    background: linear-gradient(to top, rgb(248, 46, 137), rgba(255, 87, 34, 0));
+}
+
+#grid-item-9b:hover::before {
+    background: linear-gradient(to top, #ff6fb5, rgba(255, 87, 34, 0));
+}
+
+
+
+#grid-item-e1:hover::before {
+    background: linear-gradient(to top, gold, rgba(255, 87, 34, 0));
+}
+
+#grid-item-e2:hover::before {
+    background: linear-gradient(to top, skyblue, rgba(255, 87, 34, 0));
+}
+
+#grid-item-e5:hover::before {
+    background: linear-gradient(to top, lime, rgba(255, 87, 34, 0));
+}
+
+#grid-item-c1:hover::before {
+    background: linear-gradient(to top, red, rgba(255, 87, 34, 0));
+}
+
+
+#grid-item-c2:hover::before {
+    background: linear-gradient(to top, magenta, rgba(255, 87, 34, 0));
+}
+
+#grid-item-c3:hover::before {
+    background: linear-gradient(to top, rgb(0, 255, 191), rgba(255, 87, 34, 0));
+}
+
+#grid-item-7:hover::before {
+    background: linear-gradient(to top, #f09433, #e6683c, #dc2743, #cc2366, #bc1888, rgba(255, 87, 34, 0));
+}
+
+#grid-item-7s:hover::before {
+    background: linear-gradient(to top, #ed9940, #e37148, #d62d47, #f2327f, #fd1fb794, rgba(255, 87, 34, 0));
+}
+
+
+
+#grid-item-a:hover::before {
+    background: linear-gradient(to top, rgb(160, 247, 20), rgba(255, 87, 34, 0));
+}
+
+#grid-item-ag:hover::before {
+    background: linear-gradient(to top, rgb(19, 215, 104), rgba(255, 87, 34, 0));
+}
+
+
+
+
+#grid-item-c:hover::before {
+    background: linear-gradient(to top, teal, rgba(255, 87, 34, 0));
+}
+
+.grid-item:hover .logo-wrapper {
+    transform: translateY(-20px);
+    /* Move the logo up on hover */
+}
+
+.grid-item:hover .logo {
+    transform: translateY(-10px);
+    /* Move the logo up slightly on hover */
+}
+
+@media (max-width: 768px) {
+    .grid-container {
+        grid-template-columns: 1fr 1fr;
+        /* 2 columns on smaller screens */
+    }
+}
+
+@media (max-width: 480px) {
+    .grid-container {
+        grid-template-columns: 1fr;
+        /* 1 column on very small screens */
+    }
+}
+
+/*business-logo */
+/*founder section */
+#logo1 {
+    display: block;
+    align-items: center;
+    width: 65%;
+    height: 80%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-top: 100px;
+    margin-bottom: -60px;
+    margin-left: -42px;
+}
+
+#logof2 {
+    display: block;
+    align-items: center;
+    width: 45%;
+    height: 80%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -100px;
+    margin-left: -120px;
+
+}
+
+#logof2s {
+    display: block;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -110px;
+    margin-left: -100px;
+}
+
+#logof3s {
+    display: block;
+    align-items: center;
+    width: 35%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -140px;
+    margin-bottom: -100px;
+}
+
+#logof4s {
+    display: block;
+    align-items: center;
+    width: 50%;
+    height: 80%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -100px;
+    margin-left: -110px;
+}
+
+#logof4 {
+    display: block;
+    align-items: center;
+    width: 40%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -125px;
+    margin-left: -135px;
+}
+
+#logof3 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -70px;
+    margin-bottom: -120px;
+    margin-right: 10px;
+}
+
+#logofs {
+    display: block;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -115px;
+    margin-left: -120px;
+}
+
+/*educator section */
+#logoe3 {
+    display: block;
+
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -120px;
+    margin-bottom: -80px;
+}
+
+#logoe5 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -130px;
+    margin-bottom: -110px;
+    margin-right: 10px;
+}
+
+#logoe4 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 60%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -100px;
+    margin-bottom: -110px;
+}
+
+#logoe4c {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 100%;
+    height: 120%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -60px;
+    margin-bottom: -150px;
+}
+
+
+
+#logoe6 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -30px;
+    margin-top: 160px;
+    margin-bottom: -10px;
+}
+
+/*creator section*/
+
+#logoc1 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 25%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -30px;
+    margin-top: 160px;
+    margin-bottom: -15px;
+}
+
+
+
+
+#logoc2 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -30px;
+    margin-top: 160px;
+}
+
+#logoc3 {
+    display: block;
+    align-items: center;
+    width: 75%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -130px;
+    margin-bottom: -110px;
+}
+
+#logoc4 {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 50%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -110px;
+    margin-bottom: -120px;
+}
+
+#logoc5 {
+    display: block;
+    align-items: center;
+    width: 100%;
+    height: 110%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -110px;
+}
+
+#logoec5 {
+    display: block;
+    align-items: center;
+    width: 100%;
+    height: 110%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -40px;
+    margin-bottom: -140px;
+}
+
+#logocr {
+    display: block;
+    padding-left: 15px;
+    align-items: center;
+    width: 70%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-left: -50px;
+    margin-bottom: -110px;
+}
+
+#logo7s {
+    display: flex;
+    width: 50%;
+    height: 100%;
+    transition: opacity 0.3s ease;
+    object-fit: contain;
+    margin-bottom: -120px;
+    margin-left: -80px;
+    align-items: left;
+}
